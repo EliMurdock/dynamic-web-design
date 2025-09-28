@@ -31,7 +31,7 @@ function footerTemplate(info) {
     const voice = getVoicePhone(info.contacts.phoneNumbers);
 
     return `<section class="contact">
-        <h3>Contact Info</h3>
+        <h3>CONTACT INFO</h3>
         <h4>Mailing Address:</h4>
         <div>
             <p>${mailing.line1}</p>

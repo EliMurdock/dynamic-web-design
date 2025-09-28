@@ -1,33 +1,25 @@
-import { getParkData } from "./parkService.mjs";
+import { getParkData, getParkInfoLinks } from "./parkService.mjs";
+import { setHeaderFooter } from "./setHeaderFooter.js";
+import { mediaCardTemplate } from "./templates.mjs";
 
 const parkData = getParkData();
+const parkInfoLinks = getParkInfoLinks();
 
-const disclaimer = document.querySelector(".disclaimer > a");
-disclaimer.href = parkData.url;
-disclaimer.innerHTML = parkData.fullName;
-
-
-function parkInfoTemplate(info) {
-  return `<a href="/" class="cover-picture-title">${info.name}</a>
-  <p class="cover-picture-subtitle">
-    <span>${info.designation}</span>
-    <span>${info.states}</span>
-  </p>`;
+function setParkIntro(data) {
+  const introElement = document.querySelector(".intro");
+  introElement.innerHTML = `<h1>${data.fullName}</h1><p>${data.description}</p>`;
 }
 
-const coverPictureText = document.querySelector(".cover-picture-text");
-coverPictureText.innerHTML = parkInfoTemplate(parkData);
-
-document.title = parkData.name;
-
-const coverPicture = document.querySelector(".cover-picture > img");
-const images = parkData.images;
-let currentImage = 0;
-
-function changeCoverPicture() {
-    coverPicture.src = images[currentImage].url;
-    currentImage = (currentImage + 1) % images.length;
+function setParkInfoLinks(data) {
+  const infoElement = document.querySelector(".info");
+  // turn data into html strings
+  const html = data.map(mediaCardTemplate);
+  // combine html strings
+  infoElement.insertAdjacentHTML("afterbegin", html.join(""));
 }
 
-changeCoverPicture();
-setInterval(changeCoverPicture, 10000);
+
+setHeaderFooter(parkData);
+setParkIntro(parkData);
+setParkInfoLinks(parkInfoLinks);
+

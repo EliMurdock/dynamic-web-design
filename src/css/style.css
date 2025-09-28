@@ -255,6 +255,13 @@ header a:visited {
   height: 24px;
 }
 
+/* footer styles */
+
+#park-footer {
+  background-image: url("../images/topo_pattern.png");
+}
+
+
 /* Utility styles */
 
 .visually-hidden {

@@ -13,7 +13,7 @@ function setHeaderInfo(data) {
 
   const coverPicture = document.querySelector(".cover-picture > img");
   const images = data.images;
-  let currentImage = 5;
+  let currentImage = 3;
 
   function changeCoverPicture() {
       coverPicture.src = images[currentImage].url;

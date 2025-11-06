@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FillerPage</title>
     <link rel="stylesheet" href="css/style.css" />
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/conditions.js"></script>
   </head>
   <body>
     <p class="disclaimer">
@@ -73,6 +73,7 @@
             </p>
           </div>
         </div>
+
         <nav class="park-navigation">
           <ul>
             <li>
@@ -119,9 +120,29 @@
         </nav>
       </section>
     </header>
-    <main id="main">
-      <section class="intro"></section>
-      <section class="info"></section>
+    <main class="conditions-main">
+        <h1>Current conditions</h1>
+        <section>
+            <h2>Alerts</h2>
+            <details class="alerts">
+                <summary>Alerts</summary>
+                <ul></ul>
+            </details>
+        </section>
+        <section>
+            <h2>Visitor Services</h2>
+            <details class="visitor-centers">
+                <summary>Visitors Centers</summary>
+                <ul></ul>
+            </details>
+        </section>
+        <section>
+            <h2>Activities</h2>
+            <details class="activities">
+                <summary>All Activities</summary>
+                <ul></ul>
+            </details>
+        </section>
     </main>
     <footer id="park-footer"></footer>
   </body>

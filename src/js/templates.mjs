@@ -1,4 +1,6 @@
-function parkInfoTemplate(info) {
+import spritePath from '../images/sprite.symbol.svg';
+
+export function parkInfoTemplate(info) {
     return `<a href="/" class="cover-picture-title">${info.name}</a>
     <p class="cover-picture-subtitle">
         <span>${info.designation}</span>
@@ -6,14 +8,14 @@ function parkInfoTemplate(info) {
     </p>`;
 }
 
-function mediaCardTemplate(info) {
+export function mediaCardTemplate(info) {
     return `<article class="media-card">
         <a href="${info.link}">
             <img src="${info.image}" alt="${info.name}" class="media-card-img">
             <h3 class="media-card-title">${info.name}</h3>
         </a>
         <p>${info.description}</p>
-        </article>`;
+    </article>`;
 }
 
 function getMailingAddress(addresses) {
@@ -26,7 +28,7 @@ function getVoicePhone(numbers) {
     return voice.phoneNumber;
 }
 
-function footerTemplate(info) {
+export function footerTemplate(info) {
     const mailing = getMailingAddress(info.addresses);
     const voice = getVoicePhone(info.contacts.phoneNumbers);
 
@@ -42,4 +44,30 @@ function footerTemplate(info) {
     </section>`;
 }
 
-export { parkInfoTemplate, mediaCardTemplate, footerTemplate };
+export function alertTemplate(alert) {
+    let alertType = ""
+    if (alert.category === "Park Closure") {
+        alertType = "closure";
+    } 
+    else {
+        alertType = alert.category.toLowerCase();
+    }
+    return `<li class="alert">
+        <svg class="icon" focusable="false" aria-hidden="true">
+            <use xlink:href="${spritePath}#alert-${alertType}"></use>
+        </svg>
+        <div>
+            <h3 class="alert-${alertType}">${alert.title}</h3>
+            <p>${alert.description}</p>
+        </div>
+    </li>`;
+}
+
+export function visitorCenterTemplate(visitorCenter) {
+    return `<article class="visitor-center">
+        <h3>${visitorCenter.name}</h3>
+        <p>${visitorCenter.description}</p>
+        <p>${visitorCenter.directionsInfo}</p>
+    </article>`;
+}
+

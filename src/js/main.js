@@ -18,7 +18,6 @@ function setParkInfoLinks(data) {
 }
 
 
-
 async function init() {
   const parkData = await getParkData();
   const links = getInfoLinks(parkData.images);

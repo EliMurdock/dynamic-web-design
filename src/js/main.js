@@ -18,12 +18,25 @@ function setParkInfoLinks(data) {
 }
 
 
+function enableNavigation() {
+  const menuButton = document.querySelector("#menu-toggle");
+  const nav = document.querySelector(".global-nav");
+
+  menuButton.addEventListener("click", () => {
+    nav.classList.toggle("show");
+
+    const expanded = nav.classList.contains("show");
+    menuButton.setAttribute("aria-expanded", expanded);
+  });
+}
+
 async function init() {
   const parkData = await getParkData();
   const links = getInfoLinks(parkData.images);
   setHeaderFooter(parkData);
   setParkIntro(parkData);
   setParkInfoLinks(links);
+  enableNavigation();
 }
 
 init();

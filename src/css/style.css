@@ -259,6 +259,35 @@ header a:visited {
   height: 24px;
 }
 
+.global-nav {
+  width: 100%;
+  border-top: 1px solid #333;
+  max-height: 0;
+}
+
+.global-nav button {
+  background-color: transparent;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.menu-toggle .toggle-open { display: none; }
+.menu-toggle .toggle-closed { display: flex; }
+
+.menu-toggle[aria-expanded="true"] .toggle-open { display: flex; }
+.menu-toggle[aria-expanded="true"] .toggle-closed { display: none; }
+
+.global-nav {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.global-nav.show {
+  max-height: 1000px;
+}
+
+
 /* main section */
 
 .intro {

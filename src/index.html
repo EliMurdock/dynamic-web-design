@@ -54,12 +54,46 @@
             </svg>
             <span class="visually-hidden">Search</span>
           </a>
-          <button id="global-nav-toggle">
-            <svg class="icon">
-              <use xlink:href="/images/sprite.symbol.svg#menu"></use>
-            </svg>
-            <span class="visually-hidden">Open</span>Menu
+          <button
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-expanded="false"
+            aria-label="Toggle Menu"
+          >
+            <div class="toggle-closed">
+              <svg class="icon">
+                <use xlink:href="/images/sprite.symbol.svg#menu"></use>
+              </svg>
+              Open
+            </div>
+            <div class="toggle-open">
+              <svg class="icon">
+                <use xlink:href="/images/sprite.symbol.svg#close"></use>
+              </svg>
+              Close
+            </div>
           </button>
+          <nav class="global-nav">
+            <h2 class="global-nav-heading">Explore this Park</h2>
+            <ul class="global-nav-list">
+              <li>
+                <div class="global-nav-button">
+                  <a href="#">Plan Your Visit</a>
+                  <button class="global-nav-button-toggle">
+                    <span class="visually-hidden"
+                      >Toggle submenu for Plan Your Visit</span
+                    >
+                    <svg class="icon" role="presentation" focusable="false">
+                    <use
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      xlink:href="/images/sprite.symbol.svg#arrow"
+                      ></use>
+                    </svg>
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </nav>
         </div>
       </section>
       <section id="park-header">
